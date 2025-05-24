@@ -6,7 +6,7 @@
         <!-- Logo (left) -->
         <div class="flex items-center">
           <img class="h-14 w-auto" src="@/assets/Banabiome-logo.png" alt="Banabiome" />
-          <h1 class="text-2xl font-bold text-gray-800 ml-4 hidden md:block">Banabiome</h1>
+          <h1 class="text-2xl font-bold text-gray-800 ml-2 hidden md:block">Banabiome</h1>
         </div>
         <!-- Nav Links + Order Now (right) -->
         <div class="flex items-center">

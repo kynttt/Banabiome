@@ -29,5 +29,5 @@
 
 
 <script setup lang="ts">
-import { MapPinIcon, EnvelopeIcon, PhoneIcon } from '@heroicons/vue/24/outline'
+import { MapPinIcon, EnvelopeIcon } from '@heroicons/vue/24/outline'
 </script> 
