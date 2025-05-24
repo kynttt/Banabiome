@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120" height="32" viewBox="0 0 120 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M20 8C20 12.4183 16.4183 16 12 16C7.58172 16 4 12.4183 4 8C4 3.58172 7.58172 0 12 0C16.4183 0 20 3.58172 20 8Z" fill="#4F46E5"/>
+  <path d="M28 24C28 28.4183 24.4183 32 20 32C15.5817 32 12 28.4183 12 24C12 19.5817 15.5817 16 20 16C24.4183 16 28 19.5817 28 24Z" fill="#10B981"/>
+  <text x="40" y="22" font-family="Inter" font-size="16" font-weight="600" fill="#111827">Banabiome</text>
+</svg> 
