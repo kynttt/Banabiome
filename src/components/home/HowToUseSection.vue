@@ -1,14 +1,16 @@
 <template>
   <section class="py-16 bg-white">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-2">
-        Easy Ways to Add Banabiome To Your Day
-      </h2>
-      <p class="text-gray-600 text-lg text-center mb-8 max-w-2xl mx-auto">
-        Effortlessly upgrade your daily routine. Banabiome's mild taste and fine texture blend into any meal—morning, noon, or night.
-      </p>
+      <div v-scroll-reveal="{ direction: 'up' }">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-2">
+          Easy Ways to Add Banabiome To Your Day
+        </h2>
+        <p class="text-gray-600 text-lg text-center mb-8 max-w-2xl mx-auto">
+          Effortlessly upgrade your daily routine. Banabiome's mild taste and fine texture blend into any meal—morning, noon, or night.
+        </p>
+      </div>
       <!-- Tabs -->
-      <div class="flex justify-center gap-4 mb-10">
+      <div v-scroll-reveal="{ direction: 'up' }" class="flex justify-center gap-4 mb-10">
         <button
           v-for="tab in tabs"
           :key="tab.key"
@@ -24,9 +26,8 @@
       <!-- Two Column Grid Below Tabs -->
       <div class="grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-10">
         <!-- Left: Content -->
-        <div class="flex flex-col justify-center ">
+        <div v-scroll-reveal="{ direction: 'left' }" class="flex flex-col justify-center">
           <div class="flex items-center gap-2 mb-4">
-        
             <span class="text-green-700 font-semibold text-lg">{{ currentContent.heading }}</span>
           </div>
           <p class="text-gray-700 mb-4">{{ currentContent.description }}</p>
@@ -41,8 +42,7 @@
           </button>
         </div>
         <!-- Right: Image (floating) -->
-        <div class="flex justify-center items-center relative min-h-[240px]">
-          
+        <div v-scroll-reveal="{ direction: 'right' }" class="flex justify-center items-center relative min-h-[240px]">
           <!-- Floating Image -->
           <img
             :src="currentContent.image"

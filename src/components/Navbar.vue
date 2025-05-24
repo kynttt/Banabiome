@@ -1,6 +1,11 @@
 <template>
-  <nav class="shadow-sm">
-    <div class="container bg-accent rounded-md md:my-8 mx-auto h-24 flex items-center px-4 sm:px-6 lg:px-8 relative">
+  <nav class="sticky top-0 z-50" :class="{ '': isScrolled }">
+     <div
+    :class="[
+      'container bg-accent rounded-md mx-auto h-24 flex items-center px-4 sm:px-6 lg:px-8 relative',
+      isScrolled ? 'md:mb-4' : 'md:my-8'
+    ]"
+  >
       <!-- Flex container for logo and nav -->
       <div class="flex justify-between items-center w-full h-16">
         <!-- Logo (left) -->
@@ -76,7 +81,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
 
 const links = [
@@ -88,6 +93,19 @@ const links = [
 ]
 
 const drawerOpen = ref(false)
+const isScrolled = ref(false)
+
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 20
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 </script>
 
 <style scoped>
