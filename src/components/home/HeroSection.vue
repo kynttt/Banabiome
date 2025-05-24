@@ -24,7 +24,7 @@
       </div>
       <!-- Right: Text -->
       <div class="flex-1 flex flex-col items-start lg:items-start mt-8 lg:mt-0">
-        <p class="text-primary font-medium mb-2">Welcome to Banabiome</p>
+        <p class="text-primary font-medium mb-2 md:my-4">Welcome to Banabiome</p>
         <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
   <span class="block">A Happier Gut</span>
   <span class="block mt-4">Starts With Nature</span>
