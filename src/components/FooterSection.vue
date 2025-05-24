@@ -1,16 +1,16 @@
 <template>
   <footer class="bg-primary text-white pt-12 pb-6">
-    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row md:items-start gap-10">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row md:items-start gap-24">
       <!-- Left: Logo & Buttons -->
-      <div class="flex-1 min-w-[200px] mb-8 md:mb-0">
+      <div class="w-62 flex-shrink-0 mb-8 md:mb-0">
         <div class="font-bold text-xl mb-6">Banabiome</div>
         <div class="flex flex-col gap-3">
           <button class="flex items-center gap-2 border border-white rounded-md px-4 py-2 font-semibold hover:bg-white hover:text-green-700 transition">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M3 14h18" /></svg>
+            <ShoppingBagIcon class="w-5 h-5" />
             Order Banabiome
           </button>
           <button class="flex items-center gap-2 border border-white rounded-md px-4 py-2 font-semibold hover:bg-white hover:text-green-700 transition">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.72 11.06a11.05 11.05 0 01-4.17 4.17l-2.2-.73a1 1 0 00-1.04.24l-1.1 1.1a9 9 0 0012.73-12.73l-1.1 1.1a1 1 0 00-.24 1.04l.73 2.2z" /></svg>
+            <ChatBubbleBottomCenterTextIcon class="w-5 h-5" />
             Connect on Whatsapp
           </button>
         </div>
@@ -64,5 +64,5 @@
 </template>
 
 <script setup lang="ts">
-// All links/buttons can be made props for further reusability
-</script> 
+import { ShoppingBagIcon, ChatBubbleBottomCenterTextIcon } from '@heroicons/vue/24/outline'
+</script>
