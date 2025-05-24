@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-primary flex text-white text-sm py-2 px-4 h-16 items-center">
+  <div class="hidden md:flex bg-primary flex text-white text-sm py-2 px-4 h-16 items-center">
     <div class="container mx-auto flex items-center justify-between text-lg">
       <div class="flex items-center gap-8">
         <span class="flex items-center gap-2 ">

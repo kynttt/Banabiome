@@ -1,5 +1,5 @@
 <template>
-  <section class="py-16 bg-white">
+  <section class="md:py-16 bg-white">
     <div class="max-w-5xl mx-auto px-4">
       <div class="grid grid-cols-[auto,1fr,auto] items-center gap-0 relative">
         <!-- Previous Arrow -->
@@ -21,10 +21,17 @@
             <div class="absolute left-1/2 top-2/3 -translate-x-1/2 -translate-y-1/2 bg-secondary rounded-2xl w-72 h-[108px] z-0"></div>
             <!-- Floating image, above -->
             <img
-              :src="testimonials[currentIndex].image"
-              alt="Testimonial"
-              class="w-72 h-72 object-cover rounded-xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-2/3 drop-shadow-2xl z-10"
-            />
+  :src="testimonials[currentIndex].image"
+  class="
+    mx-auto                   
+    object-cover rounded-xl
+    w-72 h-72                 
+    md:w-72 md:h-72          
+    md:absolute md:left-1/2 md:top-1/2
+    md:-translate-x-1/2 md:-translate-y-2/3
+    drop-shadow-2xl z-10
+  "
+/>
           </div>
           <!-- Right: Testimonial Card -->
           <div class="flex-1 flex flex-col justify-center mt-8 md:mt-0">

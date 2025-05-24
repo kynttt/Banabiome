@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-white py-16">
+  <section class="bg-white md:py-16">
     <div class="max-w-6xl mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-2 items-start md:gap-8 lg:gap-20">
         <!-- Left: Floating Product Image Over Colored Box -->
