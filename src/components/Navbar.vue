@@ -1,11 +1,13 @@
 <template>
-  <nav class="sticky top-0 z-50" :class="{ '': isScrolled }">
-     <div
-    :class="[
-      'container bg-accent rounded-md mx-auto h-24 flex items-center px-4 sm:px-6 lg:px-8 relative',
-      isScrolled ? 'md:mb-4' : 'md:my-8'
-    ]"
-  >
+  <nav class="sticky top-0 z-50">
+    <div
+      :class="[
+        'container bg-accent rounded-md mx-auto flex items-center px-4 sm:px-6 lg:px-8 relative transition-all duration-300 ease-in-out',
+        isScrolled
+          ? 'h-16 md:mb-4'   /* smaller + bottom margin */
+          : 'h-24 md:my-8'   /* original height + vertical margin */
+      ]"
+    >
       <!-- Flex container for logo and nav -->
       <div class="flex justify-between items-center w-full h-16">
         <!-- Logo (left) -->
@@ -21,7 +23,9 @@
               v-for="link in links"
               :key="link.to"
               :to="link.to"
-              class="text-gray-700 hover:text-green-700 font-medium transition-colors duration-150"
+              class="font-medium transition-colors duration-150 text-gray-700 hover:text-green-700"
+              :class="{ 'text-primary': isActiveSection(link.to) }"
+              @click="handleNavigation(link.to)"
             >
               {{ link.label }}
             </router-link>
@@ -47,27 +51,25 @@
           v-if="drawerOpen"
           class="fixed inset-0 z-50 bg-white p-6 flex flex-col"
         >
-          <!-- Close button -->
           <div class="self-end mb-8">
             <button @click="drawerOpen = false" aria-label="Close menu">
               <XMarkIcon class="w-8 h-8 text-gray-700" />
             </button>
           </div>
 
-          <!-- Links -->
           <nav class="flex-1 flex flex-col gap-6">
             <router-link
               v-for="link in links"
               :key="link.to"
               :to="link.to"
-              class="text-gray-800 text-lg font-medium"
-              @click="drawerOpen = false"
+              class="text-lg font-medium transition-colors duration-150 text-gray-800 hover:text-green-700"
+              :class="{ 'text-primary': isActiveSection(link.to) }"
+              @click="handleNavigation(link.to)"
             >
               {{ link.label }}
             </router-link>
           </nav>
 
-          <!-- Order Now -->
           <button
             class="mt-8 bg-primary hover:bg-green-700 text-white font-semibold px-5 py-3 rounded-md shadow transition-colors duration-150"
             @click="drawerOpen = false"
@@ -83,24 +85,56 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+const drawerOpen = ref(false)
+const isScrolled = ref(false)
 
 const links = [
   { label: 'Home', to: '/' },
-  { label: 'How It Works', to: '#' },
-  { label: 'Benefits', to: '#' },
-  { label: 'FAQ', to: '#' },
+  { label: 'How It Works', to: '#how-it-works' },
+  { label: 'Benefits', to: '#benefits' },
+  { label: 'FAQ', to: '#faq' },
   { label: 'Contact Us', to: '/contact' },
 ]
-
-const drawerOpen = ref(false)
-const isScrolled = ref(false)
 
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 20
 }
 
+const isActiveSection = (to: string) => {
+  if (to === '/') {
+    return router.currentRoute.value.path === '/'
+  }
+  if (to.startsWith('#')) {
+    const section = to.substring(1)
+    const element = document.getElementById(section)
+    if (element) {
+      const rect = element.getBoundingClientRect()
+      return rect.top <= 100 && rect.bottom >= 100
+    }
+  }
+  return router.currentRoute.value.path === to
+}
+
+const handleNavigation = (to: string) => {
+  if (to.startsWith('#')) {
+    const section = to.substring(1)
+    const element = document.getElementById(section)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+  drawerOpen.value = false
+}
+
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
+  window.addEventListener('scroll', handleScroll, { passive: true })
+  window.addEventListener('scroll', () => {
+    // Force re-evaluation of active section on scroll
+    links.forEach(link => isActiveSection(link.to))
+  }, { passive: true })
 })
 
 onUnmounted(() => {
