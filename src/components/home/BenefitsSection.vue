@@ -1,9 +1,9 @@
 <template>
   <section class="py-16 bg-white">
     <div class="max-w-5xl mx-auto px-4">
-      <p class="text-green-500 text-sm font-semibold mb-2 tracking-wide">SCIENCE-BACKED BENEFITS</p>
+      <p class="text-primary text-sm font-semibold mb-2 tracking-wide">SCIENCE-BACKED BENEFITS</p>
       <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8">What Banabiome Can Do For You</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
         <BenefitCard
           icon="gut"
           title="Healthy Gut Microbiome"

@@ -11,6 +11,7 @@ export default {
         primary: '#689C1D',
         secondary: '#F8EC58',
         accent: '#F8F9FE',
+        benCard: '#F8F9FE',
       },
       fontFamily: {
         // Add your custom fonts here based on the Figma design

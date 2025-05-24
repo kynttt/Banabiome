@@ -1,10 +1,19 @@
 <template>
-  <div class="bg-blue-50 rounded-xl p-6 flex flex-col gap-3 shadow-sm relative">
-    <span class="inline-block mb-2" v-html="iconSvg"></span>
-    <h3 class="font-semibold text-lg mb-1">{{ title }}</h3>
-    <p class="text-gray-600 text-sm flex-1">{{ description }}</p>
-    <button class="absolute bottom-4 right-4 bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition-colors">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 text-gray-500"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+  <div class="bg-benCard rounded-xl p-6 shadow-sm relative grid grid-cols-[auto,1fr] gap-4 items-center min-h-32">
+    <!-- Icon column -->
+    <div class="flex flex-col items-center justify-start h-full">
+      <span class="inline-block" v-html="iconSvg"></span>
+    </div>
+    <!-- Text column -->
+    <div class="flex  flex-col justify-center h-full">
+      <h3 class="font-semibold text-lg mb-1">{{ title }}</h3>
+      <p class="text-gray-600 text-sm">{{ description }}</p>
+    </div>
+    <!-- Button (placed at bottom right of card) -->
+    <button class="absolute bottom-0 right-0 bg-gray-300 hover:bg-gray-200 px-4 py-2 transition-colors rounded-br-xl">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+      </svg>
     </button>
   </div>
 </template>
@@ -26,4 +35,4 @@ const icons: Record<string, string> = {
 }
 
 const iconSvg = computed(() => icons[props.icon] || icons.gut)
-</script> 
+</script>
