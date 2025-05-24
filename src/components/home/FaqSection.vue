@@ -1,23 +1,25 @@
 <template>
-  <section class="py-16 bg-white">
-    <div class="max-w-3xl mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-10">Frequently Asked Questions</h2>
-      <div class="divide-y divide-gray-200 border rounded-lg bg-white shadow">
-        <div v-for="(faq, idx) in faqs" :key="faq.q" class="">
-          <button
-            class="w-full flex justify-between items-center py-4 px-6 text-left focus:outline-none focus:bg-gray-50 transition"
-            @click="openIdx = openIdx === idx ? null : idx"
-          >
-            <span class="font-medium text-gray-900">{{ faq.q }}</span>
-            <svg :class="[openIdx === idx ? 'rotate-180' : '', 'w-5 h-5 text-gray-500 transition-transform']" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
-          </button>
-          <div v-if="openIdx === idx" class="px-6 pb-4 text-gray-700 animate-fade-in">
-            {{ faq.a }}
+  <div v-scroll-reveal>
+    <section class="py-16 bg-white">
+      <div class="max-w-3xl mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-10">Frequently Asked Questions</h2>
+        <div class="divide-y divide-gray-200 border rounded-lg bg-white shadow">
+          <div v-for="(faq, idx) in faqs" :key="faq.q" class="">
+            <button
+              class="w-full flex justify-between items-center py-4 px-6 text-left focus:outline-none focus:bg-gray-50 transition"
+              @click="openIdx = openIdx === idx ? null : idx"
+            >
+              <span class="font-medium text-gray-900">{{ faq.q }}</span>
+              <svg :class="[openIdx === idx ? 'rotate-180' : '', 'w-5 h-5 text-gray-500 transition-transform']" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div v-if="openIdx === idx" class="px-6 pb-4 text-gray-700 animate-fade-in">
+              {{ faq.a }}
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 <script setup lang="ts">
